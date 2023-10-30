@@ -22,8 +22,10 @@ createApp({
     getID(index) {
       console.log(index);
     },
-    debugElement(element) {
+    toggleDone(element) {
       element.isDone = !element.isDone;
+    },
+    debugElement(element) {
       console.log(element);
     }
   },

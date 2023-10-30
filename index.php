@@ -12,7 +12,7 @@ require_once __DIR__ . '/partials/head.php';
 
     <ul class="list-group">
       <li
-        @click="debugElement(element)"
+        @click="toggleDone(element)"
         v-for="(element, index) in list"
         :key="index"
         :class="{'done': element.isDone}"
