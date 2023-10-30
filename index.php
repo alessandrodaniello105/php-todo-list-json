@@ -1,30 +1,5 @@
 <?php
 
-// $todo_tasks = [
-
-  // [
-  //   text => 'Tidy the room up',
-  //   isDone => false
-  // ],
-  // [
-  //   text => 'Tidy the code up',
-  //   isDone => false
-  // ],
-  // [
-  //   text => 'Get dressed',
-  //   isDone => false
-  // ],
-  // [
-  //   text => 'Wash yourself',
-  //   isDone => false
-  // ]
-
-// ];
-
-
-
-
-
 require_once __DIR__ . '/partials/head.php';
 
 ?>
@@ -37,7 +12,7 @@ require_once __DIR__ . '/partials/head.php';
 
     <ul class="list-group">
     <li
-      v-for="(element, index) in todoTasks"
+      v-for="(element, index) in list"
       :key="index"
       class="list-group-item">
     {{ element.text }}
