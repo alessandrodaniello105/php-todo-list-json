@@ -9,7 +9,9 @@
 
   <!-- Vue 3 -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  
+
+  <!-- Axios -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.js' integrity='sha512-xWD36je/9YUjD4wYhpeuE/ZrfcMCtg4DKhu+dZKN3P7oEtC512t5n5wue9mTtcuygp5XZkj9Vd03dqbSPk+PcA==' crossorigin='anonymous'></script>
 
   <title>PHP ToDo List JSON</title>
 </head>
