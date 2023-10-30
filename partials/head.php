@@ -13,5 +13,8 @@
   <!-- Axios -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.js' integrity='sha512-xWD36je/9YUjD4wYhpeuE/ZrfcMCtg4DKhu+dZKN3P7oEtC512t5n5wue9mTtcuygp5XZkj9Vd03dqbSPk+PcA==' crossorigin='anonymous'></script>
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
   <title>PHP ToDo List JSON</title>
 </head>
