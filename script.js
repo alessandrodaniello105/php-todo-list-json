@@ -4,12 +4,13 @@ createApp({
   data(){
     return {
       apiURL: 'server.php',
-      list: []
+      list: [],
+      newTask: ''
     }
   },
   methods: {
     getTasks() {
-      const data = new FormData;
+      // const data = new FormData;
 
       axios.get(this.apiURL)
       .then(res => {
@@ -17,6 +18,13 @@ createApp({
         this.list = res.data;
         console.log(this.list);
       })
+    },
+    getID(index) {
+      console.log(index);
+    },
+    debugElement(element) {
+      element.isDone = !element.isDone;
+      console.log(element);
     }
   },
   mounted() {
