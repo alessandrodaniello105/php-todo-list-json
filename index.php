@@ -23,17 +23,22 @@ require_once __DIR__ . '/partials/head.php';
     </ul>
 
     <div class="input-group my-3">
+
       <input
-        v-model="newTask"
+        @keyup.enter="addTask"
+        v-model.trim="newTask"
         type="text"
         class="form-control"
         placeholder="Inserisci un task da aggiungere">
+
       <button
+        @click="addTask"
         class="btn btn-success"
         type="button"
         id="task-add-btn">
         Invia
       </button>
+
     </div>
 
 

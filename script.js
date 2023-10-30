@@ -5,17 +5,34 @@ createApp({
     return {
       apiURL: 'server.php',
       list: [],
-      newTask: ''
+      newTask: '',
+
     }
   },
   methods: {
     getTasks() {
-      // const data = new FormData;
 
       axios.get(this.apiURL)
       .then(res => {
-        // const data = res.data;
         this.list = res.data;
+      })
+    },
+    addTask() {
+
+      let newElement = {
+        text: this.newTask,
+        isDone: false
+      }
+
+      let newElementString = JSON.stringify(newElement);
+
+      const data = new FormData();
+      data.append('newTaskElement', newElementString);
+
+      axios.post(this.apiURL, data)
+      .then(res => {
+        this.list = res.data;
+        this.newTask = '';
         console.log(this.list);
       })
     },
