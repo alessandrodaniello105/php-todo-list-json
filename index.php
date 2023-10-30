@@ -11,14 +11,31 @@ require_once __DIR__ . '/partials/head.php';
     <h2>PHP ToDo List JSON</h2>
 
     <ul class="list-group">
-    <li
-      v-for="(element, index) in list"
-      :key="index"
-      class="list-group-item">
-    {{ element.text }}
-    </li>
+      <li
+        @click="debugElement(element)"
+        v-for="(element, index) in list"
+        :key="index"
+        :class="{'done': element.isDone}"
+        class="list-group-item">
+      {{ element.text }}
+      </li>
 
-  </ul>
+    </ul>
+
+    <div class="input-group my-3">
+      <input
+        v-model="newTask"
+        type="text"
+        class="form-control"
+        placeholder="Inserisci un task da aggiungere">
+      <button
+        class="btn btn-success"
+        type="button"
+        id="task-add-btn">
+        Invia
+      </button>
+    </div>
+
 
   </div>
   
