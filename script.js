@@ -5,7 +5,8 @@ createApp({
     return {
       apiURL: 'server.php',
       list: [],
-      newTask: ''
+      newTask: '',
+      errorDeleteTask: false
       // newElement: {
       //   text: this.newTask,
       //   isDone: false
@@ -27,7 +28,7 @@ createApp({
         isDone: false
       }
 
-       let newElementString = JSON.stringify(newElement);
+      let newElementString = JSON.stringify(newElement);
 
       const data = new FormData();
       data.append('newTaskElement', newElementString);
@@ -38,6 +39,19 @@ createApp({
         this.newTask = '';
       })
     },
+
+    checkDoneTask(element, index) {
+      if (element.isDone == false) {
+        this.errorDeleteTask = true;
+        setTimeout(() => {
+          this.errorDeleteTask = false;
+        }, 2000)
+      } else {
+        this.errorDeleteTask = false;
+        this.removeTask(index);
+      }
+    },
+
     removeTask(index) {
       const data = new FormData();
       data.append('idTask', index);
@@ -48,11 +62,20 @@ createApp({
         this.list = res.data;
       })
     },
+    stopClick() {
+
+    },
     getID(index) {
       console.log(index);
     },
-    toggleDone(element) {
-      element.isDone = !element.isDone;
+    toggleDone(index) {
+      const data = new FormData();
+      data.append('idDone', index);
+
+      axios.post(this.apiURL, data)
+      .then(res => {
+        this.list = res.data;
+      })
     },
     debugElement(element) {
       console.log(element);
