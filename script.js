@@ -5,8 +5,11 @@ createApp({
     return {
       apiURL: 'server.php',
       list: [],
-      newTask: '',
-
+      newTask: ''
+      // newElement: {
+      //   text: this.newTask,
+      //   isDone: false
+      // }
     }
   },
   methods: {
@@ -24,7 +27,7 @@ createApp({
         isDone: false
       }
 
-      let newElementString = JSON.stringify(newElement);
+       let newElementString = JSON.stringify(newElement);
 
       const data = new FormData();
       data.append('newTaskElement', newElementString);
@@ -33,7 +36,16 @@ createApp({
       .then(res => {
         this.list = res.data;
         this.newTask = '';
-        console.log(this.list);
+      })
+    },
+    removeTask(index) {
+      const data = new FormData();
+      data.append('idTask', index);
+      console.log(index);
+
+      axios.post(this.apiURL, data)
+      .then(res => {
+        this.list = res.data;
       })
     },
     getID(index) {
