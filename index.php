@@ -18,6 +18,12 @@ require_once __DIR__ . '/partials/head.php';
         :class="{'done': element.isDone}"
         class="list-group-item">
       {{ element.text }}
+
+      <button
+        @click="removeTask(index)"
+        class="btn btn-warning">
+      Cancellami
+      </button>
       </li>
 
     </ul>
@@ -38,6 +44,7 @@ require_once __DIR__ . '/partials/head.php';
         id="task-add-btn">
         Invia
       </button>
+
 
     </div>
 
