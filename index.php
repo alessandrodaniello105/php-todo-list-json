@@ -16,7 +16,7 @@ require_once __DIR__ . '/partials/head.php';
         v-for="(element, index) in list"
         :key="index"
         :class="{'done': element.isDone}"
-        class="list-group-item">
+        class="list-group-item d-flex justify-content-between">
       {{ element.text }}
 
       <button
