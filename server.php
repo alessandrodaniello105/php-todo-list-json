@@ -8,8 +8,10 @@ if( isset($_POST['newTaskElement']) ) {
   $newTaskEl = json_decode($_POST['newTaskElement']);
 
   $tasks_list[] = $newTaskEl;
-  file_put_contents( 'todo_tasks.json', json_encode($tasks_list) );
+  file_put_contents( 'todo-tasks.json', json_encode($tasks_list) );
+
 }
+file_put_contents( 'todo-tasks.json', json_encode($tasks_list) );
 
 header('Content-Type: application/json');
 echo json_encode($tasks_list);
