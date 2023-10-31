@@ -10,17 +10,22 @@ require_once __DIR__ . '/partials/head.php';
   <div id="app" class="container rounded-3 my-3">
     <h2>PHP ToDo List JSON</h2>
 
+    <div v-if="errorDeleteTask" class="alert alert-danger" role="alert">
+      Dovresti prima completare il task per poterlo cancellare
+    </div>
+
+
     <ul class="list-group">
       <li
-        @click="toggleDone(element)"
+        @click.stop="toggleDone(index)"
         v-for="(element, index) in list"
         :key="index"
-        :class="{'done': element.isDone}"
+        
         class="list-group-item d-flex justify-content-between">
-      {{ element.text }}
+       <span :class="{'done': element.isDone}">{{ element.text }}</span>
 
       <button
-        @click="removeTask(index)"
+        @click.stop="checkDoneTask(element, index)"
         class="btn btn-warning">
       Cancellami
       </button>
